@@ -9,9 +9,18 @@ body {
 	width: 100%;
 }
 
-footer {
-	border-bottom: 1px solid #000;
-	border-top: 1px solid #000;
+.break { 
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    background:black;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 1000, from(#000), to(#fff));
+	background: -moz-radial-gradient(#000, #FFF);
+}
+
+header img {
+	max-width: 30%;
 }
 
 #logo {
@@ -42,4 +51,26 @@ button.active, button:hover {
 
 .hide {
 	display: none;
+}
+
+.modal {
+	position: absolute;
+	z-index: 1000;
+	background-color: #FFF;
+	outline: 9999px solid rgba(0,0,0,0.5);
+}
+
+#about img {
+	max-height: 600px;
+}
+
+#about-button {
+	margin: 0 auto;
+	max-width: 100px;
+}
+
+#about-button:hover {
+	background-color: #E6E6E6;
+	max-width: 100px;
+	border-radius: 10px;
 }
