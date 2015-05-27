@@ -1,15 +1,45 @@
 body {
-	width: 99%;
-	height: 900px;
-	border: 1px solid #000;
-}
-
-#content {
-	width: 100%;
+	width: 90%;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-img {
+#container {
+	width: 100%;
+}
+
+footer {
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #000;
+}
+
+#logo {
 	width: 75%;
 	height: 75%;
+}
+
+h1 {
+	border-bottom: 1px solid #000;
+}
+
+#gallery img {
+	width: 400px;
+	border: 1px solid #B8B8B8;
+}
+
+button {
+	background-color: #FFF;
+	border-radius: 45px;
+	border: none;
+	font-size: 200%;
+	margin: 0px 50px;
+}
+
+button.active, button:hover {
+	background-color: #E6E6E6;
+}
+
+.hide {
+	display: none;
 }
