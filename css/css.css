@@ -1,22 +1,54 @@
+@font-face {
+    font-family: 'fangsongregular';
+    src: url('../fonts/simfang-webfont.eot');
+    src: url('../fonts/simfang-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/simfang-webfont.woff2') format('woff2'),
+         url('../fonts/simfang-webfont.woff') format('woff'),
+         url('../fonts/simfang-webfont.ttf') format('truetype'),
+         url('../fonts/simfang-webfont.svg#fangsongregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	width: 90%;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	font-family: 'fangsongregular';
 }
 
 #container {
-	width: 100%;
+	width: 98%;
+}
+
+nav {
+	position: absolute;
+	right: 300px;
+	top: 125px;
+	font-size: 150%;
+}
+
+nav a:link {
+	color: #000;
+	text-decoration: none;
+}
+
+nav a:visited {
+	color: #000;
+	text-decoration: none;
 }
 
 .break { 
-    display:block;
-    border:none;
-    color:white;
-    height:1px;
-    background:black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 1000, from(#000), to(#fff));
-	background: -moz-radial-gradient(#000, #FFF);
+    display: block;
+	clear: both;
+    border: none;
+    color: white;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(radial, center center, 0, center center, 505, color-stop(0, #000000), color-stop(1, #FFFFFF));
+	background: -moz-radial-gradient(center, circle farthest-corner, #000000 0%, #FFFFFF 100%);
+	background: -ms-radial-gradient(center, circle farthest-corner, #000000 0%, #FFFFFF 100%);
 }
 
 header img {
@@ -60,17 +92,14 @@ button.active, button:hover {
 	outline: 9999px solid rgba(0,0,0,0.5);
 }
 
+#about {
+	font-size: 110%;
+}
+
 #about img {
 	max-height: 600px;
 }
 
 #about-button {
-	margin: 0 auto;
-	max-width: 100px;
-}
-
-#about-button:hover {
-	background-color: #E6E6E6;
-	max-width: 100px;
-	border-radius: 10px;
+	cursor: pointer;
 }

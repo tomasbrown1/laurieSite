@@ -42,7 +42,7 @@ $(function() {
 	
 	$.each(tagged, function(tagName) {							//filter buttons
 		$('<button/>', {
-			text: tagName + ' (' + tagged[tagName].length + ')',
+			text: tagName,
 			click: function() {
 				$(this)
 					.addClass('active')
