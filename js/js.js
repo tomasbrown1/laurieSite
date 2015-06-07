@@ -102,11 +102,10 @@ $('.slider').each(function() {														//start photo viewer
 		}, 8000);
 	}
 	
+	var $thumbnails = $group.find('img').attr('src');
+	
 	$.each($slides, function(index) {
-		var $button = $('<img src="img/p1.jpg">');
-		if (index === currentIndex) {
-			$button.addClass('active');
-		}
+		var $button = $('<img src="' + $thumbnails + '">');  //here is where I need write script so the thumbnails so the correct picture
 		$button.on('click', function() {
 			move(index);
 		}).appendTo('.slide-selector');
