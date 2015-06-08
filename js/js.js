@@ -102,10 +102,11 @@ $('.slider').each(function() {														//start photo viewer
 		}, 8000);
 	}
 	
-	var $thumbnails = $group.find('img').attr('src');
+	var $thumbnails = $group.find('img').attr('src');	//here I need to write code to create an array of img src
+	
 	
 	$.each($slides, function(index) {
-		var $button = $('<img src="' + $thumbnails + '">');  //here is where I need write script so the thumbnails so the correct picture
+		var $button = $('<img src="' + $thumbnails + '">');	//here is where I need write script so the thumbnails show the correct picture
 		$button.on('click', function() {
 			move(index);
 		}).appendTo('.slide-selector');
