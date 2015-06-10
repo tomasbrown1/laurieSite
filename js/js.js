@@ -5,7 +5,7 @@ $(function() {
 	var $content = $('#content');									//finish variables
 	
 	$content.addClass('hide')										//start splash
-	$container.append('<img src="img/logo.png" id="logo">');
+	$container.append('<img src="../img/logo.png" id="logo">');
 	introTimeout = setTimeout(function() {
 		$('#logo').fadeOut(500);
 		$content.delay(500).fadeIn(1000);
@@ -102,11 +102,9 @@ $('.slider').each(function() {														//start photo viewer
 		}, 8000);
 	}
 	
-	var $thumbnails = $group.find('img').attr('src');	//here I need to write code to create an array of img src
-	
-	
-	$.each($slides, function(index) {
-		var $button = $('<img src="' + $thumbnails + '">');	//here is where I need write script so the thumbnails show the correct picture
+	$slides.each(function(index) {
+		var src = $(this).find('img').attr('src');
+		var $button = $('<img src="' + src + '">');
 		$button.on('click', function() {
 			move(index);
 		}).appendTo('.slide-selector');

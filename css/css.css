@@ -19,13 +19,13 @@ body {
 }
 
 #container {
-	width: 98%;
+	width: 99%;
 }
 
 nav {
 	position: absolute;
 	left: 200px;
-	top: 125px;
+	top: 100px;
 	font-size: 150%;
 }
 
@@ -113,21 +113,21 @@ button.active, button:hover {
 	display: block;
 }
 
-.slide-btn {
-  border: none;
-  background: none;
-  color: #000;
-  font-size: 200%;
-  line-height: 0.5em;
-}
-
-.slide-btn.active, .slide-btn:hover {
-  color: #ed8e6c;
-  cursor: pointer;
-}
-
 .hide {
 	display: none;
+}
+
+footer {
+	text-align: right;
+}
+
+footer p {
+	display: inline;
+	font-size: 125%;
+}
+
+footer img {
+	max-height: 35px;
 }
 
 .modal {
@@ -147,4 +147,45 @@ button.active, button:hover {
 
 #about-button {
 	cursor: pointer;
+}
+
+@media screen and (max-width: 1650px) {	
+	nav {
+		top: 75px;
+	}
+	
+	.slide-viewer {
+		margin-right: -35%;
+	}
+}
+
+@media screen and (max-width: 1125px) {	
+	nav {
+		left: 100px;
+		top: 50px;
+	}
+	
+		
+	.slide-selector {
+		width: 99%;
+		clear: both;
+		margin: auto;
+		padding: auto;
+	}
+	
+	.slide-viewer {
+		margin-right: auto;
+		padding-top: 250px;
+	}
+	
+	.slide img {
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	nav {
+		top: 25px;
+		left: 50px;
+	}
 }
