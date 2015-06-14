@@ -1,6 +1,7 @@
 $(function() {
 	
 	var introTimeout;
+	var pageTimeout;
 	var $splashImg = $('#splash-img');
 	var $content = $('#content');
 	var $flags = $('.flags');
@@ -10,11 +11,22 @@ $(function() {
 	introTimeout = setTimeout(function() {
 		$('#logo').fadeOut(500);
 		$content.delay(500).fadeIn(1000);
-	}, 1000);														//end splash
-	
-	$flags.on														//start script for flag event listener
-	
+	}, 1000);														//end splash							
+
+	$flags.click(function(e) {										//start script for flag event listener
+		e.preventDefault();
+		$img = $(this);
+		$link = $img.closest('a');
+		var link = $link.attr('href');
+		$content.fadeOut(500);
+		
+		pageTimeout = setTimeout(function() {
+			window.location.href = link;
+		}, 500);
+	});																//end script for flag event listener
+
 }());
+
 
 $('.slider').each(function() {														//start photo viewer
 	var $this = $(this);
