@@ -1,58 +1,20 @@
 $(function() {
 	
-	var introTimeout;												//declare variables
-	var $container = $('#container');
-	var $content = $('#content');									//finish variables
+	var introTimeout;
+	var $splashImg = $('#splash-img');
+	var $content = $('#content');
+	var $flags = $('.flags');
 	
 	$content.addClass('hide')										//start splash
-	$container.append('<img src="../img/logo.png" id="logo">');
+	$splashImg.append('<img src="img/logo.png" id="logo">');
 	introTimeout = setTimeout(function() {
 		$('#logo').fadeOut(500);
 		$content.delay(500).fadeIn(1000);
 	}, 1000);														//end splash
 	
-});
-
-var modal = (function() {															//modal window start
-	var $window = $(window);
-	var $modal = $('<div class="modal"/>');
-	var $content = $('<div class="modal-content"/>');
-	var $close = $('<button role="button" class="modal-close">Close</button>');
+	$flags.on														//start script for flag event listener
 	
-	$modal.append($content, $close);
-	
-	$close.on('click', function(e){
-		e.preventDefault();
-		modal.close();
-	});
-	
-	return {
-		center: function() {
-			var top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
-			var left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
-			$modal.css({
-				top: top + $window.scrollTop(),
-				left: left + $window.scrollLeft()
-			});
-		},
-		open: function(settings) {
-			$content.empty().append(settings.content);
-			
-			$modal.css({
-				width: settings.width || 'auto',
-				height: settings.height || 'auto'
-			}).appendTo('body');
-			
-			modal.center();
-			$(window).on('resize', modal.center);
-		},
-		close: function() {
-			$content.empty();
-			$modal.detach();
-			$(window).off('resize', modal.center);
-		}
-	};
-}());																				//modal window end
+}());
 
 $('.slider').each(function() {														//start photo viewer
 	var $this = $(this);
@@ -112,4 +74,45 @@ $('.slider').each(function() {														//start photo viewer
 	});
 	
 	advance();
-});																					//end photo viewer
+});																				//end photo viewer
+
+var modal = (function() {															//modal window start
+	var $window = $(window);
+	var $modal = $('<div class="modal"/>');
+	var $content = $('<div class="modal-content"/>');
+	var $close = $('<button role="button" class="modal-close">Close</button>');
+	
+	$modal.append($content, $close);
+	
+	$close.on('click', function(e){
+		e.preventDefault();
+		modal.close();
+	});
+	
+	return {
+		center: function() {
+			var top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
+			var left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
+			$modal.css({
+				top: top + $window.scrollTop(),
+				left: left + $window.scrollLeft()
+			});
+		},
+		open: function(settings) {
+			$content.empty().append(settings.content);
+			
+			$modal.css({
+				width: settings.width || 'auto',
+				height: settings.height || 'auto'
+			}).appendTo('body');
+			
+			modal.center();
+			$(window).on('resize', modal.center);
+		},
+		close: function() {
+			$content.empty();
+			$modal.detach();
+			$(window).off('resize', modal.center);
+		}
+	};
+}());																				//modal window end

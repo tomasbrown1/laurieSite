@@ -18,6 +18,10 @@ body {
 	font-family: 'fangsongregular';
 }
 
+#flag-select img {
+	max-height: 400px;
+}
+
 #container {
 	width: 99%;
 }
