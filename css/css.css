@@ -19,7 +19,7 @@ body {
 }
 
 #flag-select img {
-	max-height: 400px;
+	max-height: 300px;
 }
 
 #container {
@@ -56,7 +56,7 @@ nav a:visited {
 }
 
 header img {
-	max-width: 30%;
+	max-height: 300px;
 }
 
 #logo {
@@ -153,43 +153,13 @@ footer img {
 	cursor: pointer;
 }
 
-@media screen and (max-width: 1650px) {	
-	nav {
-		top: 75px;
-	}
-	
+@media screen and (max-width: 1500px) {
 	.slide-viewer {
-		margin-right: -35%;
-	}
-}
-
-@media screen and (max-width: 1125px) {	
-	nav {
-		left: 100px;
-		top: 50px;
-	}
-	
-		
-	.slide-selector {
-		width: 99%;
-		clear: both;
-		margin: auto;
-		padding: auto;
-	}
-	
-	.slide-viewer {
-		margin-right: auto;
-		padding-top: 250px;
+		left: 150px;
+		height: 500px;
 	}
 	
 	.slide img {
-		max-width: 100%;
-	}
-}
-
-@media screen and (max-width: 850px) {
-	nav {
-		top: 25px;
-		left: 50px;
+		max-width: 700px;
 	}
 }
