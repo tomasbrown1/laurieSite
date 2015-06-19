@@ -80,7 +80,9 @@ button.active, button:hover {
 .slide-selector {
 	text-align: center;
 	float: left;
-	width: 300px;
+	width: 320px;
+	height: 600px;
+	overflow: auto;
 	position: absolute;
 	z-index: 100;
 }
@@ -92,7 +94,7 @@ button.active, button:hover {
 .slide-viewer {
 	position: relative;
 	overflow: hidden;
-	height: 500px;
+	height: 600px;
 }
 
 .slide-group {
@@ -110,7 +112,7 @@ button.active, button:hover {
 }
 
 .slide img {
-	max-width: 50%;
+	max-height: 100%;
 }
 
 .slide:first-child {
@@ -134,6 +136,10 @@ footer img {
 	max-height: 35px;
 }
 
+#tomas {
+	font-size: 90%;
+}
+
 .modal {
 	position: absolute;
 	z-index: 1000;
@@ -153,13 +159,18 @@ footer img {
 	cursor: pointer;
 }
 
-@media screen and (max-width: 1500px) {
-	.slide-viewer {
-		left: 150px;
-		height: 500px;
+@media screen and (max-width: 1340px) {
+	body {
+		width: 99%;
 	}
 	
-	.slide img {
-		max-width: 700px;
+	.slide-selector {
+		position: relative;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+	nav {
+		left: 50px;
 	}
 }

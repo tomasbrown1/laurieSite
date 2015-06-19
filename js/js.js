@@ -18,17 +18,17 @@ $(function() {
 		$img = $(this);
 		$link = $img.closest('a');
 		var link = $link.attr('href');
-		$content.fadeOut(500);
+		$content.fadeOut(1000);
 		
 		pageTimeout = setTimeout(function() {
 			window.location.href = link;
-		}, 500);
+		}, 1000);
 	});																//end script for flag event listener
 
 }());
 
 
-$('.slider').each(function() {														//start photo viewer
+$('.slider').each(function() {														//start photo slider
 	var $this = $(this);
 	var $group = $this.find('.slide-group');
 	var $slides = $this.find('.slide');
@@ -86,17 +86,27 @@ $('.slider').each(function() {														//start photo viewer
 	});
 	
 	advance();
-});																				//end photo viewer
+});																				//end photo slider
 
 var modal = (function() {															//modal window start
 	var $window = $(window);
 	var $modal = $('<div class="modal"/>');
 	var $content = $('<div class="modal-content"/>');
 	var $close = $('<button role="button" class="modal-close">Close</button>');
+	var $fermer = $('<button role="button" class="modal-close">Fermer</button>');
 	
-	$modal.append($content, $close);
+	if (window.location.href.indexOf("fr") > -1){
+		$modal.append($content, $fermer);
+	} else {
+		$modal.append($content, $close);
+	}
 	
 	$close.on('click', function(e){
+		e.preventDefault();
+		modal.close();
+	});
+	
+	$fermer.on('click', function(e){
 		e.preventDefault();
 		modal.close();
 	});
