@@ -19,18 +19,65 @@ $(function() {
 		$img = $(this);
 		$link = $img.closest('a');
 		var link = $link.attr('href');
-		
-		if (link == window.location.href) {							//Here I need to find
-			($content, $page).fadeOut(1000);						//a way to stop
-			pageTimeout = setTimeout(function() {					//the animations if link
-				window.location.href = link;						//goes to current page
-			}, 1000);
-		}
+		$content.fadeOut(1000);
+		pageTimeout = setTimeout(function() {
+			window.location.href = link;
+		}, 1000);
 	});																//end script for flag event listener
 
 	$page.fadeIn(1000);
 	
 }());
+
+(function() {													//start tags
+	
+	var $imgs = $('.slide-group img');
+	var $buttons = $('#buttons');
+	var tagged = {};
+	
+	$imgs.each(function() {
+		var img = this;
+		var tags = $(this).data('tags');
+		
+		if (tags) {
+			tags.split(',').forEach(function(tagName) {
+				if (tagged[tagName] == null) {
+					tagged[tagName] = [];
+				}
+				tagged[tagName].push(img);
+			});
+		}
+	});
+	
+	$('<button/>', {
+		text: 'Show All',
+		class: 'active',
+		click: function() {
+			$(this)
+				.addClass('active')
+				.siblings()
+				.removeClass('active');
+			$imgs.show();
+		}
+	}).appendTo($buttons);
+	
+	$.each(tagged, function(tagName) {
+		$('<button/>', {
+			text: tagName,
+			click: function() {
+				$(this)
+					.addClass('active')
+					.siblings()
+					.removeClass('active');
+				$imgs
+					.hide()
+					.filter(tagged[tagName])
+					.show();
+			}
+		}).appendTo($buttons);
+	});
+	
+}());																				//end tags
 
 
 $('.slider').each(function() {														//start photo slider
