@@ -4,9 +4,10 @@ $(function() {
 	var pageTimeout;
 	var $splashImg = $('#splash-img');
 	var $content = $('#content');
+	var $page = $('#page-content');
 	var $flags = $('.flags');
 	
-	$content.addClass('hide')										//start splash
+	$content.addClass('hide');										//start splash
 	$splashImg.append('<img src="img/logo.png" id="logo">');
 	introTimeout = setTimeout(function() {
 		$('#logo').fadeOut(500);
@@ -18,13 +19,17 @@ $(function() {
 		$img = $(this);
 		$link = $img.closest('a');
 		var link = $link.attr('href');
-		$content.fadeOut(1000);
 		
-		pageTimeout = setTimeout(function() {
-			window.location.href = link;
-		}, 1000);
+		if (link == window.location.href) {							//Here I need to find
+			($content, $page).fadeOut(1000);						//a way to stop
+			pageTimeout = setTimeout(function() {					//the animations if link
+				window.location.href = link;						//goes to current page
+			}, 1000);
+		}
 	});																//end script for flag event listener
 
+	$page.fadeIn(1000);
+	
 }());
 
 
