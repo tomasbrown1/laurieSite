@@ -2,7 +2,12 @@
 		# created by Tomas Brown
 
 		$pageTitle = 'Laurie Giol Life Drawing';
-		include ('header.html');
+		$about = 'About';
+		$contact = 'Contact';
+		$language = 'Select Language to view site:';
+		$createdBy = 'Website created by ';
+		$modalText = 'Laurie Giol is a French artist currently residing in Bristol UK';
+		include ('../includes/header.html');
 		
 ?>
 
@@ -45,6 +50,6 @@
 
 <?php
 
-	include ('footer.html')
+	include ('../includes/footer.html')
 	
 ?>
