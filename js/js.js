@@ -108,8 +108,15 @@ $('.slider').each(function() {														//start photo slider
 		}
 	});
 	
-	$('<button/>', {
-		text: 'Show All',
+	if (window.location.href.indexOf("fr") > -1){
+		var all = 'Tous';
+	} else {
+		var all = 'All';
+	}
+	
+	
+	$('<button/>', {		
+		text: all,
 		class: 'active',
 		click: function() {
 			$(this)
