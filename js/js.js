@@ -29,9 +29,68 @@ $(function() {
 	
 }());
 
-(function() {													//start tags
+
+$('.slider').each(function() {														//start photo slider
+	var $this = $(this);
+	var $group = $this.find('.slide-group');
+	var $slides = $this.find('.slide');
+	var buttonArray = [];
+	var currentIndex = 0;
+	var timeout;
 	
-	var $imgs = $('.slide-group img');
+	function move(newIndex) {
+		var animateLeft, slideLeft;
+		
+		advance();
+		
+		if ($group.is(':animated') || currentIndex === newIndex) {
+			return;
+		}
+		
+		if (newIndex > currentIndex) {
+			slideLeft = '100%';
+			animateLeft = '-100%';
+		} else {
+			slideLeft = '-100%';
+			animateLeft = '100%';
+		}
+		
+		$slides.eq(newIndex).css( { left: slideLeft, display: 'block'} );
+		$group.animate( { left: animateLeft} , function() {
+			$slides.eq(currentIndex).css( { display: 'none'} );
+			$slides.eq(newIndex).css( {left: 0} );
+			$group.css( {left: 0} );
+			currentIndex = newIndex;
+		});
+	}
+	
+	function advance() {
+		clearTimeout(timeout);
+		timeout = setTimeout(function() {
+			if (currentIndex < ($slides.length - 1)) {
+				move (currentIndex + 1);
+			} else {
+				move (0);
+			}
+		}, 8000);
+	}
+	
+	$slides.each(function(index) {
+		var src = $(this).find('img').attr('src');
+		var tags = $(this).find('img').attr('data-tags');
+		var $button = $('<img src="' + src + '" data-tags="' + tags + '">');
+		$button.on('click', function() {
+			move(index);
+		}).appendTo('.slide-selector');
+		buttonArray.push($button);
+	});
+	
+	advance();
+});																				//end photo slider
+
+(function() {																	//start tags
+	
+	var $imgs = $('.slide-selector img');
 	var $buttons = $('#buttons');
 	var tagged = {};
 	
@@ -78,67 +137,6 @@ $(function() {
 	});
 	
 }());																				//end tags
-
-
-$('.slider').each(function() {														//start photo slider
-	var $this = $(this);
-	var $group = $this.find('.slide-group');
-	var $slides = $this.find('.slide');
-	var buttonArray = [];
-	var currentIndex = 0;
-	var timeout;
-	
-	function move(newIndex) {
-		var animateLeft, slideLeft;
-		
-		advance();
-		
-		if ($group.is(':animated') || currentIndex === newIndex) {
-			return;
-		}
-		
-		buttonArray[currentIndex].removeClass('active');
-		buttonArray[newIndex].addClass('active');
-		
-		if (newIndex > currentIndex) {
-			slideLeft = '100%';
-			animateLeft = '-100%';
-		} else {
-			slideLeft = '-100%';
-			animateLeft = '100%';
-		}
-		
-		$slides.eq(newIndex).css( { left: slideLeft, display: 'block'} );
-		$group.animate( { left: animateLeft} , function() {
-			$slides.eq(currentIndex).css( { display: 'none'} );
-			$slides.eq(newIndex).css( {left: 0} );
-			$group.css( {left: 0} );
-			currentIndex = newIndex;
-		});
-	}
-	
-	function advance() {
-		clearTimeout(timeout);
-		timeout = setTimeout(function() {
-			if (currentIndex < ($slides.length - 1)) {
-				move (currentIndex + 1);
-			} else {
-				move (0);
-			}
-		}, 8000);
-	}
-	
-	$slides.each(function(index) {
-		var src = $(this).find('img').attr('src');
-		var $button = $('<img src="' + src + '">');
-		$button.on('click', function() {
-			move(index);
-		}).appendTo('.slide-selector');
-		buttonArray.push($button);
-	});
-	
-	advance();
-});																				//end photo slider
 
 var modal = (function() {															//modal window start
 	var $window = $(window);
