@@ -69,7 +69,7 @@ button {
 	background-color: #FFF;
 	border-radius: 45px;
 	border: none;
-	font-size: 200%;
+	font-size: 150%;
 	font-family: 'fangsongregular';
 	margin: 0px 50px;
 }
@@ -79,7 +79,7 @@ button.active, button:hover {
 }
 
 .slide-selector {
-	text-align: center;
+	text-align: left;
 	float: left;
 	width: 320px;
 	height: 600px;
@@ -139,6 +139,10 @@ footer img {
 
 #tomas {
 	font-size: 90%;
+}
+
+#laurie {
+	font-size: 125%;
 }
 
 .modal {
